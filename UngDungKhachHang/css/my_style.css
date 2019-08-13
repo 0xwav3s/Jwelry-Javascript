@@ -1,0 +1,50 @@
+.btn {
+	background-color: #ddd;
+	border: none;
+	border-radius: 4px;
+	color: black;
+	width: 100%;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 40px 2px;
+	transition: 0.3s;
+}
+
+.btn:hover {
+	background-color: #6d6c6d;
+	color: white;
+}
+
+.products .btn-add-remove {
+	height: 40px;
+	background-color: #fff;
+	display: block;
+	color: #ff4a4a;
+	font-family: "Novecentowide";
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 40px;
+	margin: 0 32px;
+}
+
+.products .btn-add-remove:hover {
+	background: #ff4a4a;
+	color: #fff;
+	text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.products article:hover {
+	width: 235px;
+	padding: 18px 0 0;
+	height: 405px;
+	border: 1px solid #d3d3d3;
+	background-color: rgba(255, 243, 211, 0.664);
+	text-align: center;
+	float: left;
+	margin: 0 0 -1px -1px;
+}

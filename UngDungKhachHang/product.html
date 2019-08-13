@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<title>Diana’s jewelry</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" media="all" href="css/style.css">
+	<link rel="stylesheet" href="css/my_style.css">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<header id="header">
+		<div class="container">
+			<a href="index.html" id="logo" title="Diana’s jewelry">Diana’s jewelry</a>
+			<div class="right-links">
+				<ul>
+					<li id="TH_GioHang"></li>
+					<li><a href="#"><span class="ico-account"></span>Account</a></li>
+					<li><a href="#"><span class="ico-signout"></span>Sign out</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- / container -->
+	</header>
+	<!-- / header -->
+
+	<nav id="menu">
+		<div class="container">
+			<div class="trigger"></div>
+			<ul>
+				<li><a href="products.html">All Products</a></li>
+				<li><a href="products.html?category=rings">Rings</a></li>
+				<li><a href="products.html?category=earrings">Earrings</a></li>
+				<li><a href="products.html?category=necklaces">Necklaces</a></li>
+				<li><a href="products.html?category=bangles">Bangles</a></li>
+			</ul>
+		</div>
+		<!-- / container -->
+	</nav>
+	<!-- / navigation -->
+
+	<div id="breadcrumbs">
+		<div class="container">
+			<ul id="TH_TenSP">
+			</ul>
+		</div>
+		<!-- / container -->
+	</div>
+	<!-- / body -->
+
+	<div id="body">
+		<div class="container">
+			<div id="content" class="full">
+				<div class="product">
+					<div class="image" id="TH_Hinhanh">
+					</div>
+					<div class="details" id="TH_ChiTiet">
+					</div>
+				</div>
+			</div>
+			<!-- / content -->
+		</div>
+		<!-- / container -->
+	</div>
+	<!-- / body -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="cols">
+				<div class="col temple"></div>
+				<div class="col media">
+					<h3>Các mạng xã hội</h3>
+					<ul class="social">
+						<li><a href="#"><span class="ico ico-fb"></span>Facebook</a></li>
+						<li><a href="#"><span class="ico ico-tw"></span>Twitter</a></li>
+						<li><a href="#"><span class="ico ico-gp"></span>Google+</a></li>
+						<li><a href="#"><span class="ico ico-pi"></span>Pinterest</a></li>
+					</ul>
+				</div>
+				<div class="col contact">
+					<h3>Liên hệ với chúng tôi</h3>
+					<p>Ruby Nguyen’s Jewelry INC.<br>42 Phạm Ngọc Thạch<br>Sài Gòn</p>
+					<p><span class="ico ico-em"></span><a href="#">ruby.nguyen@gmail.com</a></p>
+					<p><span class="ico ico-ph"></span>(+84) 818 366 378</p>
+				</div>
+				<div class="col newsletter">
+					<h3>Góp ý</h3>
+					<p>Nếu bạn muốn thêm thông tin từ chúng tôi xin vui lòng để lại địa chỉ e-mail. Chúng tôi sẽ liên
+						lạc với bạn sớm nhất.
+						<form action="#">
+							<input type="text" placeholder="Your email address...">
+							<button type="submit"></button>
+						</form>
+				</div>
+			</div>
+			<p class="copy">Copyright 2019 Trương Minh Lâm.</p>
+		</div>
+		<!-- / container -->
+	</footer>
+	<!-- / footer -->
+
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	<!-- my service -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<script src="DataService/dataService.js"></script>
+	<script>
+		Tao_The_hien_Gio_hang()
+		var params = getSearchParameters(); 
+		var Du_lieu = XL_Danh_muc(params.category);
+		San_pham = Du_lieu.find(x => x.MaSo == params.id)
+		valueb = "Add to cart"
+		var ds = []
+		if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+			ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
+		}
+		if(ds.indexOf(params.id)!=-1){
+			valueb = "Remove to cart"
+		}
+		if (San_pham.length == 0) {
+			window.history.back();
+		} else {
+			thanhTien = Don_gia_Ban(San_pham)
+			noi_dung_HTML = `
+						<h1>${San_pham['MaSo']}</h1>
+						<h4>$${Tao_Chuoi_The_hien_So_nguyen_duong(thanhTien)}</h4>
+						<div class="entry">
+							<p>${San_pham['Ten']}</p>
+							<div class="tabs">
+								<div class="nav">
+									<ul>
+										<li class="active"><a href="#desc">Detail</a></li>
+										<li><a href="#spec">Gold</a></li>
+										<li><a href="#ret">Other</a></li>
+									</ul>
+								</div>
+								<div class="tab-content active" id="desc">
+									<p>
+										ID: ${San_pham['MaSo']} </br>
+										Name: ${San_pham['Ten']} </br>
+										Type: ${San_pham['Nhom']} </br>
+										Size: ${San_pham['CauTao']['KichCo']} </br>
+            							Material: ${San_pham['CauTao']['ThanhPhanVang']['ChatLieu']} </br>
+                						Wage: ${San_pham['CauTao']['TienCong']}
+									</p>
+								</div>
+								<div class="tab-content" id="spec">
+									<p>
+										Material: ${San_pham['CauTao']['ThanhPhanVang']['ChatLieu']} </br>
+										Gold Price: ${San_pham['CauTao']['ThanhPhanVang']['GiaHienTai']['DonGia']} </br>
+										Unit: ${San_pham['CauTao']['ThanhPhanVang']['GiaHienTai']['DonViTinh']} </br>
+										Date: ${San_pham['CauTao']['ThanhPhanVang']['GiaHienTai']['Ngay']} </br>
+									</p>
+								</div>
+								<div class="tab-content" id="ret">
+									<p>
+										Material: ${San_pham['CauTao']['ThanhPhanHat']['ChatLieu']} </br>
+										Price: ${San_pham['CauTao']['ThanhPhanHat']['GiaHienTai']['DonGia']} </br>
+										Unit: ${San_pham['CauTao']['ThanhPhanHat']['GiaHienTai']['DonViTinh']} </br>
+										Date: ${San_pham['CauTao']['ThanhPhanHat']['GiaHienTai']['Ngay']} </br>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="actions">
+							<label>Quantity:</label>
+							<select>
+								<option>1</option>
+							</select>
+							<span id="${San_pham['MaSo']}" onClick="Them_vao_Gio_hang(this.id)"><a id="btn-${San_pham['MaSo']}" href="javascript:void(0)" class="btn-grey">${valueb}</a></span>
+						</div>
+			`
+			TH_TenSP.innerHTML = `<li><a href="index.html">Home</a></li>`
+			TH_TenSP.innerHTML += `<li><a href="products.html?category=${params.category}">${params.category.toUpperCase()}</a></li>`
+			TH_TenSP.innerHTML += `<li><a href="#">${params.id}</a></li>`
+			TH_ChiTiet.innerHTML = noi_dung_HTML
+			TH_Hinhanh.innerHTML = `<img src="${urlMedia}/${San_pham['MaSo']}.png" alt="">`
+
+		}
+	</script>
+</body>
+
+</html>

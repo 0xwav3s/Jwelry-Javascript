@@ -1,0 +1,48 @@
+{
+	"Ten" 		: 	"BÔNG TAI CƯƠNG VÀNG TRẮNG 14K PNJ NGUYỆN ƯỚC NHAN-VT-KC-0003",
+	"MaSo" 		: 	"BONGTAI-VT-KC-0003",
+	"CauTao"	:	{
+						"ThanhPhanVang"	:	{
+											"ChatLieu" 		:	"Vàng trắng",
+											"GiaHienTai"	:	{
+																	"Ngay"		:	"18-05-2019",
+																	"DonGia"	:	"328$",
+																	"DonViTinh"	:	"Chỉ"
+											},
+											"GiaTruocDo"	: 	[{
+																	"Ngay"		:	"01-05-2019",
+																	"DonGia"	:	"326$",
+																	"DonViTinh"	:	"Chỉ"
+																},
+																{
+																	"Ngay"		:	"18-04-2019",
+																	"DonGia"	:	"329$",
+																	"DonViTinh"	:	"Chỉ"
+																}]
+						},
+						
+						"ThanhPhanHat"	: 	{
+											"ChatLieu" 		:	"KimCuong",
+											"GiaHienTai"	:	{
+																	"Ngay"		:	"18-05-2019",
+																	"DonGia"	:	"328$",
+																	"DonViTinh"	:	"Cara"
+											},
+											"GiaTruocDo"	: 	[{
+																	"Ngay"		:	"01-05-2019",
+																	"DonGia"	:	"326$",
+																	"DonViTinh"	:	"Cara"
+																},
+																{
+																	"Ngay"		:	"18-04-2019",
+																	"DonGia"	:	"329$",
+																	"DonViTinh"	:	"Cara"
+																}]
+						},
+						
+						"KichCo"	:	"M1",
+						"TienCong"	:	"78$"
+					},
+
+	"Nhom"		:	"BongTai"
+}
